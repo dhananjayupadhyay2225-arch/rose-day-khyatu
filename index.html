@@ -1,0 +1,38 @@
+<script>
+const message = 
+"Some people give roses today…\n" +
+"But I give you my heart every day.\n\n" +
+"You make my ordinary moments feel magical,\n" +
+"And my life feels more beautiful\n" +
+"just because you are in it 🌷";
+
+let i = 0;
+function typeEffect(){
+    if(i < message.length){
+        document.getElementById("text").innerHTML += 
+            message.charAt(i) === "\n" ? "<br>" : message.charAt(i);
+        i++;
+        setTimeout(typeEffect, 45);
+    }
+}
+typeEffect();
+
+function reveal(){
+    document.getElementById("final").style.display="block";
+}
+
+/* floating roses & hearts */
+const icons = ["🌹","💖","🌸","❤️"];
+for(let i=0;i<30;i++){
+    let f = document.createElement("div");
+    f.className="float";
+    f.innerHTML = icons[Math.floor(Math.random()*icons.length)];
+    f.style.left = Math.random()*100 + "vw";
+    f.style.animationDuration = (6 + Math.random()*6) + "s";
+    f.style.fontSize = (1 + Math.random()*1.5) + "em";
+    document.body.appendChild(f);
+}
+</script>
+
+</body>
+</html>
